@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>crust.church | Break the Shell. Find the Spirit.</title>
+    <meta name="description" content="crust.church: The community for spiritual deconstruction and the revelation of what lies beneath the hardened shell of dogma.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Oswald:wght@500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f4f4f7;
+            --text-primary: #1a1a2e;
+            --text-secondary: #5a5a6e;
+            /* --- NEW: Earth & Sky Palette --- */
+            --accent-earth: #b97a57; /* Warm, earthy Terracotta */
+            --accent-celestial: #5c95e6;
+            --earth-glow: rgba(185, 122, 87, 0.2);
+            --card-bg: rgba(255, 255, 255, 0.9);
+            --border-color: rgba(26, 26, 46, 0.1);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { 
+            font-family: 'EB Garamond', serif; 
+            color: var(--text-primary); 
+            background: var(--bg-color);
+            text-align: center; 
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+        .container { 
+            max-width: 1100px; 
+            width: 100%; 
+            padding: 0 40px;
+            margin: 0 auto;
+        }
+        header {
+            width: 100%;
+            min-height: 100vh;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .main-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(4rem, 15vw, 10rem); 
+            font-weight: 500; 
+            letter-spacing: 0.1em; 
+            line-height: 1;
+            color: var(--text-primary);
+            position: relative;
+            text-transform: uppercase;
+        }
+        .main-title .tld {
+            font-family: 'EB Garamond', serif;
+            color: var(--accent-earth);
+            font-weight: 400;
+            margin-left: 0.1em;
+        }
+        /* --- NEW: The "Break Crust" Animation --- */
+        .crust-animated {
+            position: relative;
+            color: transparent;
+            -webkit-text-stroke: 1px var(--text-primary);
+            animation: reveal-text 10s ease-in-out infinite;
+        }
+        .crust-animated::before {
+            content: 'CRUST';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            color: var(--accent-earth);
+            -webkit-text-stroke: 0;
+            animation: crack-crust 10s ease-in-out infinite;
+        }
+        @keyframes reveal-text {
+            0%, 40%, 100% { color: transparent; }
+            50%, 90% { color: var(--text-primary); }
+        }
+        @keyframes crack-crust {
+            0%, 40%, 100% { clip-path: inset(0 0 0 0); }
+            50%, 90% { clip-path: inset(0 100% 0 0); }
+        }
+        .tagline {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 2rem auto 0;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+        .philosophy-section {
+            background: #fff;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 80px 40px;
+            width: 100%;
+        }
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            color: var(--accent-earth);
+            margin-bottom: 3.5rem;
+            text-transform: uppercase;
+        }
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .philosophy-card {
+            text-align: center;
+            padding: 20px;
+        }
+        .card-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 1.2rem;
+            color: var(--text-primary);
+            display: inline-block;
+            border-bottom: 2px solid var(--accent-earth);
+            padding-bottom: 10px;
+        }
+        .card-content {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-top: 20px;
+        }
+        .acquisition-section {
+            padding: 100px 40px;
+            width: 100%;
+        }
+        .sales-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 40px;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.07);
+        }
+        .domain-name {
+            font-family: 'Oswald', monospace;
+            font-size: 1.8rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+            text-transform: uppercase;
+        }
+        .price { font-size: 3rem; font-weight: 300; color: var(--accent-earth); margin: 10px 0; }
+        .buy-button {
+            display: inline-block; background: var(--accent-earth); color: #fff;
+            font-family: 'Oswald', sans-serif; font-size: 1.2rem; font-weight: 500;
+            padding: 18px 35px; border-radius: 8px; text-decoration: none;
+            border: none; cursor: pointer; text-transform: uppercase;
+            letter-spacing: 0.08em; transition: all 0.3s ease;
+            width: 100%; margin-top: 30px;
+        }
+        .buy-button:hover {
+            background: #c98b6a;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px var(--earth-glow);
+        }
+        footer {
+            padding: 60px 40px;
+            font-size: 0.95rem; 
+            color: var(--text-secondary);
+            border-top: 1px solid var(--border-color);
+            width: 100%;
+        }
+        @media (max-width: 992px) { .philosophy-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 768px) {
+            .container { padding: 0 20px; }
+            .main-title { font-size: clamp(3rem, 18vw, 6rem); }
+            .tagline { font-size: 1.1rem; }
+            .philosophy-section, .acquisition-section { padding: 60px 20px; }
+            .philosophy-grid { gap: 3.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-content">
+        <header>
+            <div class="container">
+                <h1 class="main-title">
+                    <span class="crust-animated">CRUST</span><span class="tld">.church</span>
+                </h1>
+                <p class="tagline">A community dedicated to breaking the calcified shells of old dogma to reveal the truth beneath.</p>
+            </div>
+        </header>
+
+        <section class="philosophy-section">
+            <div class="container">
+                <div class="section-title">The Three Tenets</div>
+                <div class="philosophy-grid">
+                    <div class="philosophy-card">
+                        <div class="card-title">I. Deconstruction</div>
+                        <div class="card-content">The sacred act of breaking. Questioning the hardened surfaces of inherited beliefs and daring to challenge what has become rigid and lifeless.</div>
+                    </div>
+                    <div class="philosophy-card">
+                        <div class="card-title">II. Revelation</div>
+                        <div class="card-content">The truth that lies beneath. After the crust is broken, we find the soft, living core—the authentic, unadorned spiritual insight that was always there.</div>
+                    </div>
+                    <div class="philosophy-card">
+                        <div class="card-title">III. Community</div>
+                        <div class="card-content">The shared journey of the break. A church is not a dogma, but a gathering of people committed to the collective process of shedding and becoming.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="acquisition-section">
+            <div class="container">
+                <div class="sales-card">
+                    <h3 class="domain-name">crust<span style="color:var(--accent-earth)">.church</span></h3>
+                    <p class="card-content" style="margin-top:0;">The foundational address for a movement of spiritual renewal and authentic inquiry.</p>
+                    <div class="price">$444 <small>USD</small></div>
+                    <button class="buy-button" onclick="window.open('https://www.spaceship.com/s/buy/crust.church/gGtd0saFJPWF0S5S', '_blank')">Acquire the Foundation</button>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>© <span id="currentYear"></span> crust.church — What lies beneath.</p>
+        </footer>
+    </div>
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
